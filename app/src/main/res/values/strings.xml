@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Belajar</string>
+  <string name="action_listener">Click!</string>
+  <string name="action_listener_snack">Snack!</string>
+</resources>
