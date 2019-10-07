@@ -3,4 +3,5 @@
   <string name="app_name">Belajar</string>
   <string name="action_listener">Click!</string>
   <string name="action_listener_snack">Snack!</string>
+  <string name="fragment_text">Halo Fragment!</string>
 </resources>

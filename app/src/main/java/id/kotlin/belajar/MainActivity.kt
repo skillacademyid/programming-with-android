@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
     val rootLayout = findViewById<LinearLayout>(R.id.root_layout)
     val buttonSnack = findViewById<Button>(R.id.btn_click_snack)
     buttonSnack.setOnClickListener { Snackbar.make(rootLayout, "Halo Snack", Snackbar.LENGTH_SHORT).show() }
+
+    supportFragmentManager.beginTransaction().replace(R.id.fl_main, MainFragment()).commit()
   }
 
   override fun onPause() {
