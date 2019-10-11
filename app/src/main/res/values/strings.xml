@@ -7,4 +7,5 @@
   <string name="text">Halo Text!</string>
   <string name="button">Halo Button!</string>
   <string name="input_text">Halo Input Text!</string>
+  <string name="text_custom">Halo Custom View!</string>
 </resources>
