@@ -5,4 +5,5 @@
   <string name="action_listener_snack">Snack!</string>
   <string name="fragment_text">Halo Fragment!</string>
   <string name="text">Halo Text!</string>
+  <string name="button">Halo Button!</string>
 </resources>
