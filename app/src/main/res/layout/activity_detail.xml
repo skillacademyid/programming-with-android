@@ -6,26 +6,26 @@
                                                    android:layout_height="match_parent"
                                                    tools:context=".DetailActivity">
 
-  <TextView
-      android:id="@+id/tv_detail"
+  <com.google.android.material.textfield.TextInputLayout
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:gravity="center"
-      android:text="@string/text"
-      android:textColor="@color/black"
-      android:textSize="22sp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      android:layout_margin="16dp"
+      android:hint="@string/input_text"
+      app:boxBackgroundColor="@android:color/transparent"
+      app:boxCornerRadiusBottomEnd="8dp"
+      app:boxCornerRadiusBottomStart="8dp"
+      app:boxCornerRadiusTopEnd="8dp"
+      app:boxCornerRadiusTopStart="8dp"
+      app:boxStrokeColor="@color/black"
+      app:boxStrokeWidth="1dp"
+      app:layout_constraintTop_toTopOf="parent">
 
-  <com.google.android.material.button.MaterialButton
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="8dp"
-      android:layout_marginTop="8dp"
-      android:layout_marginEnd="8dp"
-      android:text="@string/button"
-      android:textColor="@color/black"
-      app:backgroundTint="@color/grey"
-      app:layout_constraintTop_toBottomOf="@id/tv_detail"
-      app:rippleColor="@color/grey_dark" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+  </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

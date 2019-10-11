@@ -3,5 +3,6 @@
   <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
     <item name="colorPrimaryDark">@color/white</item>
     <item name="android:windowLightStatusBar">true</item>
+    <item name="colorControlActivated">@color/black</item>
   </style>
 </resources>

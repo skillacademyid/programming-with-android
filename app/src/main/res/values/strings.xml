@@ -6,4 +6,5 @@
   <string name="fragment_text">Halo Fragment!</string>
   <string name="text">Halo Text!</string>
   <string name="button">Halo Button!</string>
+  <string name="input_text">Halo Input Text!</string>
 </resources>
