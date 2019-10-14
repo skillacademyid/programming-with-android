@@ -7,32 +7,38 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), HomeView {
+
+  private lateinit var progressBar: ProgressBar
+  private lateinit var recyclerView: RecyclerView
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_home)
 
-    val progressBar = findViewById<ProgressBar>(R.id.pb_home)
+    progressBar = findViewById(R.id.pb_home)
+    recyclerView = findViewById(R.id.rv_home)
 
-    val datasource = NetworkProvider.providesHttpAdapter().create(HomeDatasource::class.java)
-    datasource.discoverMovie().enqueue(object : Callback<HomeResponse> {
-      override fun onResponse(call: Call<HomeResponse>, response: Response<HomeResponse>) {
-        progressBar.visibility = View.GONE
+    val presenter = HomePresenter(this)
+    presenter.discoverMovie()
+  }
 
-        val results = response.body()?.results
-        val itemAdapter = findViewById<RecyclerView>(R.id.rv_home)
-        itemAdapter.addItemDecoration(DividerItemDecoration(this@HomeActivity, DividerItemDecoration.VERTICAL))
-        itemAdapter.adapter = HomeAdapter(results ?: emptyList())
-      }
+  override fun onShowLoading() {
+    progressBar.visibility = View.VISIBLE
+  }
 
-      override fun onFailure(call: Call<HomeResponse>, t: Throwable) {
-        Log.e(HomeActivity::class.java.simpleName, "${t.printStackTrace()}")
-      }
-    })
+  override fun onHideLoading() {
+    progressBar.visibility = View.GONE
+    recyclerView.visibility = View.VISIBLE
+  }
+
+  override fun onResponse(results: List<Result>) {
+    recyclerView.addItemDecoration(DividerItemDecoration(this@HomeActivity, DividerItemDecoration.VERTICAL))
+    recyclerView.adapter = HomeAdapter(results)
+  }
+
+  override fun onFailure(error: Throwable) {
+    Log.e(HomeActivity::class.java.simpleName, "${error.printStackTrace()}")
   }
 }

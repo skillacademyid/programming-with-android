@@ -22,11 +22,11 @@
       android:layout_height="wrap_content"
       android:indeterminate="true"
       android:indeterminateTint="@color/black"
+      android:visibility="gone"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      tools:visibility="gone" />
+      app:layout_constraintTop_toTopOf="parent" />
 
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/rv_home"
@@ -34,6 +34,8 @@
       android:layout_height="match_parent"
       android:paddingTop="?android:attr/actionBarSize"
       android:scrollbars="vertical"
+      android:visibility="gone"
       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-      tools:listitem="@layout/item_home" />
+      tools:listitem="@layout/item_home"
+      tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>
