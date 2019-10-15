@@ -1,5 +1,6 @@
-package id.kotlin.belajar
+package id.kotlin.belajar.data
 
+import id.kotlin.belajar.BuildConfig
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

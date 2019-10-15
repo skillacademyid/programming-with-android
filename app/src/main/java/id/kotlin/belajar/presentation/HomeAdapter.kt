@@ -1,4 +1,4 @@
-package id.kotlin.belajar
+package id.kotlin.belajar.presentation
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import id.kotlin.belajar.HomeAdapter.HomeViewHolder
+import id.kotlin.belajar.R
+import id.kotlin.belajar.data.Result
+import id.kotlin.belajar.presentation.HomeAdapter.HomeViewHolder
 
 class HomeAdapter(private val results: List<Result>) : Adapter<HomeViewHolder>() {
 

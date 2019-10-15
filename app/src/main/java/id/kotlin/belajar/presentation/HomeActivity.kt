@@ -1,14 +1,20 @@
-package id.kotlin.belajar
+package id.kotlin.belajar.presentation
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import dagger.android.support.DaggerAppCompatActivity
+import id.kotlin.belajar.R
+import id.kotlin.belajar.data.Result
+import javax.inject.Inject
 
-class HomeActivity : AppCompatActivity(), HomeView {
+class HomeActivity : DaggerAppCompatActivity(), HomeView {
+
+  @Inject
+  lateinit var presenter: HomePresenter
 
   private lateinit var progressBar: ProgressBar
   private lateinit var recyclerView: RecyclerView
@@ -20,7 +26,6 @@ class HomeActivity : AppCompatActivity(), HomeView {
     progressBar = findViewById(R.id.pb_home)
     recyclerView = findViewById(R.id.rv_home)
 
-    val presenter = HomePresenter(this)
     presenter.discoverMovie()
   }
 

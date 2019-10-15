@@ -1,15 +1,19 @@
-package id.kotlin.belajar
+package id.kotlin.belajar.presentation
 
+import id.kotlin.belajar.data.HomeDatasource
+import id.kotlin.belajar.data.HomeResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomePresenter(private val view: HomeView) {
+class HomePresenter(
+    private val view: HomeView,
+    private val datasource: HomeDatasource
+) {
 
   fun discoverMovie() {
     view.onShowLoading()
 
-    val datasource = NetworkProvider.providesHttpAdapter().create(HomeDatasource::class.java)
     datasource.discoverMovie().enqueue(object : Callback<HomeResponse> {
       override fun onResponse(call: Call<HomeResponse>, response: Response<HomeResponse>) {
         view.onHideLoading()

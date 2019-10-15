@@ -1,4 +1,4 @@
-package id.kotlin.belajar
+package id.kotlin.belajar.data
 
 import com.google.gson.annotations.SerializedName
 

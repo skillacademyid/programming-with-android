@@ -1,4 +1,6 @@
-package id.kotlin.belajar
+package id.kotlin.belajar.presentation
+
+import id.kotlin.belajar.data.Result
 
 interface HomeView {
 

@@ -6,6 +6,7 @@
   <uses-permission android:name="android.permission.INTERNET" />
 
   <application
+      android:name=".BelajarApp"
       android:allowBackup="false"
       android:fullBackupContent="false"
       android:icon="@mipmap/ic_launcher"
@@ -16,7 +17,7 @@
       tools:ignore="GoogleAppIndexingWarning">
 
     <activity
-        android:name=".HomeActivity"
+        android:name=".presentation.HomeActivity"
         android:screenOrientation="portrait">
 
       <intent-filter>
