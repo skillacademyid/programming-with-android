@@ -3,6 +3,8 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="id.kotlin.belajar">
 
+  <uses-permission android:name="android.permission.INTERNET" />
+
   <application
       android:allowBackup="false"
       android:fullBackupContent="false"
@@ -14,13 +16,7 @@
       tools:ignore="GoogleAppIndexingWarning">
 
     <activity
-        android:name=".MainActivity"
-        android:screenOrientation="portrait" />
-    <activity
-        android:name=".DetailActivity"
-        android:screenOrientation="portrait" />
-    <activity
-        android:name=".CustomActivity"
+        android:name=".HomeActivity"
         android:screenOrientation="portrait">
 
       <intent-filter>

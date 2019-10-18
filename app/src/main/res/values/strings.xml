@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Belajar</string>
-  <string name="action_listener">Click!</string>
-  <string name="action_listener_snack">Snack!</string>
-  <string name="fragment_text">Halo Fragment!</string>
-  <string name="text">Halo Text!</string>
-  <string name="button">Halo Button!</string>
-  <string name="input_text">Halo Input Text!</string>
-  <string name="text_custom">Halo Custom View!</string>
 </resources>
