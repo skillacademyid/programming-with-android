@@ -29,6 +29,11 @@ class HomeActivity : DaggerAppCompatActivity(), HomeView {
     presenter.discoverMovie()
   }
 
+  override fun onDestroy() {
+    super.onDestroy()
+    presenter.onDetach()
+  }
+
   override fun onShowLoading() {
     progressBar.visibility = View.VISIBLE
   }
