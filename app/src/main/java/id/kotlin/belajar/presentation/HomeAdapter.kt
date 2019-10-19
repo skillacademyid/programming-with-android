@@ -3,12 +3,12 @@ package id.kotlin.belajar.presentation
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import id.kotlin.belajar.R
 import id.kotlin.belajar.data.Result
 import id.kotlin.belajar.presentation.HomeAdapter.HomeViewHolder
+import kotlinx.android.synthetic.main.item_home.view.*
 
 class HomeAdapter(private val results: List<Result>) : Adapter<HomeViewHolder>() {
 
@@ -36,11 +36,8 @@ class HomeAdapter(private val results: List<Result>) : Adapter<HomeViewHolder>()
 
     fun bind(result: Result) {
       with(itemView) {
-        val title = findViewById<TextView>(R.id.tv_title)
-        title.text = result.title
-
-        val overview = findViewById<TextView>(R.id.tv_overview)
-        overview.text = result.overview
+        tv_title.text = result.title
+        tv_overview.text = result.overview
       }
     }
   }
