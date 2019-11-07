@@ -1,11 +1,15 @@
 package id.kotlin.belajar.presentation
 
-import id.kotlin.belajar.data.Result
+import id.kotlin.belajar.domain.HomeEntity
 
 interface HomeView {
 
   fun onShowLoading()
   fun onHideLoading()
-  fun onResponse(results: List<Result>)
-  fun onFailure(error: Throwable)
+
+  fun onSuccess(entity: HomeEntity)
+  fun onError(error: Throwable)
+
+  fun onPaginationSuccess(entity: HomeEntity)
+  fun onPaginationError(error: Throwable)
 }

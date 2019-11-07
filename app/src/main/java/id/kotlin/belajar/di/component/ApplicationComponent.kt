@@ -5,12 +5,14 @@ import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import id.kotlin.belajar.BelajarApp
 import id.kotlin.belajar.di.builder.ActivityBuilder
+import id.kotlin.belajar.di.module.ApplicationModule
 import id.kotlin.belajar.di.module.NetworkModule
 import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
   AndroidSupportInjectionModule::class,
+  ApplicationModule::class,
   NetworkModule::class,
   ActivityBuilder::class
 ])

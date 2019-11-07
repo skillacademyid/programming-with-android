@@ -1,32 +1,54 @@
 package id.kotlin.belajar.presentation
 
-import id.kotlin.belajar.data.HomeDatasource
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.rxkotlin.addTo
+import id.kotlin.belajar.domain.HomeEntity
+import id.kotlin.belajar.domain.HomeParam
+import id.kotlin.belajar.domain.HomeUsecase
+import id.kotlin.belajar.domain.common.DefaultObserver
 
 class HomePresenter(
     private val view: HomeView,
-    private val datasource: HomeDatasource
-) {
-
-  private val disposables: CompositeDisposable = CompositeDisposable()
+    private val usecase: HomeUsecase) {
 
   fun discoverMovie() {
     view.onShowLoading()
+    usecase.execute(
+        DiscoverMovieUsecase(),
+        HomeParam()
+    )
+  }
 
-    datasource.discoverMovie()
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribe({ response ->
-          view.onHideLoading()
-          view.onResponse(response.results)
-        }, { error ->
-          view.onHideLoading()
-          view.onFailure(error)
-        }).addTo(disposables)
+  fun loadMore(page: Long) {
+    usecase.execute(
+        LoadMoreUsecase(),
+        HomeParam(page = page)
+    )
   }
 
   fun onDetach() {
-    disposables.clear()
+    usecase.dispose()
+  }
+
+  inner class DiscoverMovieUsecase : DefaultObserver<HomeEntity>() {
+
+    override fun onSuccess(entity: HomeEntity) {
+      view.onHideLoading()
+      view.onSuccess(entity)
+    }
+
+    override fun onError(exception: Throwable) {
+      view.onHideLoading()
+      view.onError(exception)
+    }
+  }
+
+  inner class LoadMoreUsecase : DefaultObserver<HomeEntity>() {
+
+    override fun onSuccess(entity: HomeEntity) {
+      view.onPaginationSuccess(entity)
+    }
+
+    override fun onError(exception: Throwable) {
+      view.onPaginationError(exception)
+    }
   }
 }
