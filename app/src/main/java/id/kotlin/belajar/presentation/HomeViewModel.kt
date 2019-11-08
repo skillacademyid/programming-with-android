@@ -1,42 +1,34 @@
 package id.kotlin.belajar.presentation
 
-import android.view.View
-import androidx.databinding.BaseObservable
-import androidx.databinding.Bindable
-import androidx.databinding.library.baseAdapters.BR
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import id.kotlin.belajar.data.HomeDatasource
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.rxkotlin.addTo
+import javax.inject.Inject
 
-class HomeViewModel(
-    private val callback: HomeViewModelCallback,
+class HomeViewModel @Inject constructor(
     private val datasource: HomeDatasource
-) : BaseObservable(), HomeView {
+) : ViewModel(), HomeView {
 
-  var progressBarVisibility: Int = View.GONE
-    @Bindable get
+  private val disposables = CompositeDisposable()
+  private val observer = MutableLiveData<HomeViewState>()
 
-  private val disposables: CompositeDisposable = CompositeDisposable()
+  override val states: LiveData<HomeViewState>
+    get() = observer
 
-  override fun discoverMovie() {
-    progressBarVisibility = View.VISIBLE
-    notifyPropertyChanged(BR.progressBarVisibility)
-
-    datasource.discoverMovie()
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribe({ response ->
-          progressBarVisibility = View.GONE
-          notifyPropertyChanged(BR.progressBarVisibility)
-          callback.onSuccess(response.results)
-        }, { error ->
-          progressBarVisibility = View.GONE
-          notifyPropertyChanged(BR.progressBarVisibility)
-          callback.onError(error)
-        }).addTo(disposables)
+  override fun onCleared() {
+    super.onCleared()
+    disposables.clear()
   }
 
-  override fun onDetach() {
-    disposables.clear()
+  override fun discoverMovie() {
+    datasource.discoverMovie()
+        .map<HomeViewState>(HomeViewState::Success)
+        .onErrorReturn(HomeViewState::Error)
+        .toFlowable()
+        .startWith(HomeViewState.Loading)
+        .subscribe(observer::postValue)
+        .let(disposables::add)
   }
 }

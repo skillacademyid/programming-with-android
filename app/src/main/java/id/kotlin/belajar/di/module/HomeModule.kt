@@ -1,12 +1,13 @@
 package id.kotlin.belajar.di.module
 
+import androidx.lifecycle.ViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import dagger.multibindings.IntoMap
 import id.kotlin.belajar.data.HomeDatasource
-import id.kotlin.belajar.presentation.HomeActivity
+import id.kotlin.belajar.di.scope.ViewModelKey
 import id.kotlin.belajar.presentation.HomeViewModel
-import id.kotlin.belajar.presentation.HomeViewModelCallback
 import retrofit2.Retrofit
 
 @Module
@@ -19,15 +20,10 @@ abstract class HomeModule {
     @Provides
     fun providesHomeDatasource(retrofit: Retrofit): HomeDatasource =
         retrofit.create(HomeDatasource::class.java)
-
-    @JvmStatic
-    @Provides
-    fun providesHomeViewModel(
-        callback: HomeViewModelCallback,
-        datasource: HomeDatasource
-    ): HomeViewModel = HomeViewModel(callback, datasource)
   }
 
   @Binds
-  abstract fun bindHomeViewModelCallback(activity: HomeActivity): HomeViewModelCallback
+  @IntoMap
+  @ViewModelKey(HomeViewModel::class)
+  abstract fun bindHomeViewModel(viewModel: HomeViewModel): ViewModel
 }
