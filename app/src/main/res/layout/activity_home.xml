@@ -4,7 +4,7 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
-                                                   tools:context=".presentation.HomeActivity">
+                                                   tools:context=".HomeActivity">
 
   <androidx.appcompat.widget.Toolbar
       android:layout_width="match_parent"
@@ -14,26 +14,4 @@
       app:layout_constraintTop_toTopOf="parent"
       app:title="@string/app_name"
       app:titleTextColor="@color/black" />
-
-  <ProgressBar
-      android:id="@+id/pb_home"
-      style="@style/Widget.AppCompat.ProgressBar"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:indeterminate="true"
-      android:indeterminateTint="@color/black"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
-
-  <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/rv_home"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:paddingTop="?android:attr/actionBarSize"
-      android:scrollbars="vertical"
-      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-      tools:listitem="@layout/item_home"
-      tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>
