@@ -3,20 +3,14 @@ package id.kotlin.belajar.data
 import com.google.gson.annotations.SerializedName
 
 data class HomeResponse(
-    @SerializedName("page")
-    val page: Long? = -1L,
-
-    @SerializedName("total_pages")
-    val totalPages: Long? = -1L,
-
     @SerializedName("results")
-    val results: List<Result>? = emptyList()
+    val results: List<Result>
 )
 
 data class Result(
     @SerializedName("title")
-    val title: String? = null,
+    val title: String,
 
     @SerializedName("overview")
-    val overview: String? = null
+    val overview: String
 )
