@@ -4,27 +4,16 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
-                                                   tools:context=".HomeActivity">
+                                                   tools:context=".DetailActivity">
 
   <androidx.appcompat.widget.Toolbar
+      android:id="@+id/toolbar_detail"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:background="@color/white"
       android:elevation="4dp"
       app:layout_constraintTop_toTopOf="parent"
-      app:title="@string/app_name"
+      app:navigationIcon="@drawable/ic_arrow_back"
+      app:title="@string/detail"
       app:titleTextColor="@color/black" />
-
-  <com.google.android.material.button.MaterialButton
-      android:id="@+id/btn_open"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/open"
-      android:textColor="@color/black"
-      app:backgroundTint="@color/grey"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:rippleColor="@color/grey_dark" />
 </androidx.constraintlayout.widget.ConstraintLayout>
