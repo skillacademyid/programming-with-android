@@ -14,7 +14,7 @@
       tools:ignore="GoogleAppIndexingWarning">
 
     <activity
-        android:name=".HomeActivity"
+        android:name=".presentation.HomeActivity"
         android:screenOrientation="portrait">
 
       <intent-filter>
@@ -23,7 +23,7 @@
       </intent-filter>
     </activity>
     <activity
-        android:name=".DetailActivity"
+        android:name=".presentation.DetailActivity"
         android:screenOrientation="portrait" />
   </application>
 </manifest>

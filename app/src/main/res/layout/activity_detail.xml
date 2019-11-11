@@ -4,7 +4,7 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
-                                                   tools:context=".DetailActivity">
+                                                   tools:context=".presentation.DetailActivity">
 
   <androidx.appcompat.widget.Toolbar
       android:id="@+id/toolbar_detail"
@@ -16,4 +16,26 @@
       app:navigationIcon="@drawable/ic_arrow_back"
       app:title="@string/detail"
       app:titleTextColor="@color/black" />
+
+  <TextView
+      android:id="@+id/tv_name"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="8dp"
+      android:textColor="@color/black"
+      android:textSize="16sp"
+      app:layout_constraintTop_toBottomOf="@id/toolbar_detail"
+      tools:text="Name" />
+
+  <TextView
+      android:id="@+id/tv_age"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="4dp"
+      android:layout_marginEnd="8dp"
+      android:textColor="@color/black"
+      android:textSize="14sp"
+      app:layout_constraintTop_toBottomOf="@id/tv_name"
+      tools:text="Age" />
 </androidx.constraintlayout.widget.ConstraintLayout>
