@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Belajar</string>
-  <string name="open">Open</string>
-  <string name="detail">Detail</string>
+  <string name="nav_home">Home</string>
+  <string name="nav_history">History</string>
+  <string name="nav_settings">Settings</string>
 </resources>
