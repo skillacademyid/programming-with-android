@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                           xmlns:app="http://schemas.android.com/apk/res-auto"
-                                           xmlns:tools="http://schemas.android.com/tools"
-                                           android:id="@+id/dl_home"
-                                           android:layout_width="match_parent"
-                                           android:layout_height="match_parent"
-                                           android:fitsSystemWindows="true"
-                                           tools:context=".HomeActivity">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   tools:context=".HomeActivity">
 
-  <androidx.constraintlayout.widget.ConstraintLayout
+  <androidx.appcompat.widget.Toolbar
       android:layout_width="match_parent"
-      android:layout_height="match_parent">
+      android:layout_height="wrap_content"
+      android:background="@color/white"
+      android:elevation="4dp"
+      app:layout_constraintTop_toTopOf="parent"
+      app:title="@string/app_name"
+      app:titleTextColor="@color/black" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:elevation="4dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/app_name"
-        app:titleTextColor="@color/black" />
-
-    <fragment
-        android:id="@+id/fragment_home"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/navigation" />
-  </androidx.constraintlayout.widget.ConstraintLayout>
-
-  <com.google.android.material.navigation.NavigationView
-      android:id="@+id/nv_home"
+  <com.google.android.material.button.MaterialButton
+      android:id="@+id/btn_count"
       android:layout_width="wrap_content"
-      android:layout_height="match_parent"
-      android:layout_gravity="start"
-      app:menu="@menu/menu" />
-</androidx.drawerlayout.widget.DrawerLayout>
+      android:layout_height="wrap_content"
+      android:text="@string/count"
+      android:textColor="@color/black"
+      app:backgroundTint="@color/grey"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:rippleColor="@color/grey_dark" />
+
+  <TextView
+      android:id="@+id/tv_number"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:gravity="center"
+      android:textColor="@color/black"
+      android:textSize="22sp"
+      app:layout_constraintTop_toBottomOf="@id/btn_count"
+      tools:text="1" />
+</androidx.constraintlayout.widget.ConstraintLayout>
