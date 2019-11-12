@@ -4,7 +4,7 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
-                                                   tools:context=".HomeActivity">
+                                                   tools:context=".presentation.HomeActivity">
 
   <androidx.appcompat.widget.Toolbar
       android:layout_width="match_parent"
@@ -15,27 +15,25 @@
       app:title="@string/app_name"
       app:titleTextColor="@color/black" />
 
-  <com.google.android.material.button.MaterialButton
-      android:id="@+id/btn_count"
+  <ProgressBar
+      android:id="@+id/pb_home"
+      style="@style/Widget.AppCompat.ProgressBar"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/count"
-      android:textColor="@color/black"
-      app:backgroundTint="@color/grey"
+      android:indeterminate="true"
+      android:indeterminateTint="@color/black"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:rippleColor="@color/grey_dark" />
+      tools:visibility="gone" />
 
-  <TextView
-      android:id="@+id/tv_number"
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/rv_home"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
-      android:gravity="center"
-      android:textColor="@color/black"
-      android:textSize="22sp"
-      app:layout_constraintTop_toBottomOf="@id/btn_count"
-      tools:text="1" />
+      android:layout_height="match_parent"
+      android:paddingTop="?android:attr/actionBarSize"
+      android:scrollbars="vertical"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      tools:listitem="@layout/item_home" />
 </androidx.constraintlayout.widget.ConstraintLayout>
