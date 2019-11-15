@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -12,9 +11,6 @@ android {
     targetSdkVersion 29
     versionCode 1
     versionName "1.0.0"
-
-    buildConfigField 'String', 'API_KEY', '"f920accbb779fcb3ab3bbec9a8b40bd0"'
-    buildConfigField 'String', 'BASE_URL', '"https://api.themoviedb.org"'
   }
   buildTypes {
     release {
@@ -26,23 +22,13 @@ android {
 
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+  implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
   implementation 'androidx.appcompat:appcompat:1.1.0'
-  implementation 'androidx.core:core-ktx:1.1.0'
-  implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
   implementation 'com.google.android.material:material:1.0.0'
-  implementation 'com.squareup.retrofit2:retrofit:2.6.1'
-  implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
-  implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.1'
-  implementation 'com.squareup.okhttp3:okhttp:4.2.2'
-  implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
-  implementation 'io.reactivex.rxjava2:rxjava:2.2.13'
-  implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
-  implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-  implementation 'com.google.dagger:dagger:2.24'
-  implementation 'com.google.dagger:dagger-android:2.24'
-  implementation 'com.google.dagger:dagger-android-support:2.24'
-  kapt 'com.google.dagger:dagger-compiler:2.24'
-  kapt 'com.google.dagger:dagger-android-processor:2.24'
-  implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
-  implementation 'androidx.paging:paging-runtime:2.1.0'
+  implementation 'androidx.compose:compose-runtime:0.1.0-dev01'
+  kapt 'androidx.compose:compose-compiler:0.1.0-dev01'
+  implementation 'androidx.ui:ui-layout:0.1.0-dev01'
+  implementation 'androidx.ui:ui-material:0.1.0-dev01'
+  implementation 'androidx.ui:ui-android-text:0.1.0-dev01'
+  implementation 'androidx.ui:ui-text:0.1.0-dev01'
 }
