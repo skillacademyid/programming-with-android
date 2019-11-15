@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "752648129667",
+    "firebase_url": "https://belajar-ruangguru.firebaseio.com",
+    "project_id": "belajar-ruangguru",
+    "storage_bucket": "belajar-ruangguru.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:752648129667:android:4d663f7e24f7fa6ea31fb6",
+        "android_client_info": {
+          "package_name": "id.kotlin.belajar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "752648129667-fs0on1ahi3lovajk4socdvo6cl5dcctj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.kotlin.belajar",
+            "certificate_hash": "637fdc5f227da830cfeb13e2a19a6664e039854e"
+          }
+        },
+        {
+          "client_id": "752648129667-gnu81r708u6h69qrce31fpmkfrapu6k6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4qh2dLcrA3bwrLWe7SaOJYFheatffg9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "752648129667-gnu81r708u6h69qrce31fpmkfrapu6k6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 android {
   compileSdkVersion 29
@@ -22,13 +22,12 @@ android {
 
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-  implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
   implementation 'androidx.appcompat:appcompat:1.1.0'
+  implementation 'androidx.core:core-ktx:1.1.0'
+  implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
   implementation 'com.google.android.material:material:1.0.0'
-  implementation 'androidx.compose:compose-runtime:0.1.0-dev01'
-  kapt 'androidx.compose:compose-compiler:0.1.0-dev01'
-  implementation 'androidx.ui:ui-layout:0.1.0-dev01'
-  implementation 'androidx.ui:ui-material:0.1.0-dev01'
-  implementation 'androidx.ui:ui-android-text:0.1.0-dev01'
-  implementation 'androidx.ui:ui-text:0.1.0-dev01'
+  implementation 'com.google.firebase:firebase-core:17.2.1'
+  implementation 'com.google.firebase:firebase-messaging:20.0.1'
 }
+
+apply plugin: 'com.google.gms.google-services'
